@@ -1,0 +1,14 @@
+{
+  "apiPackage": "lol.maki.dev.store.spec",
+  "modelPackage": "lol.maki.dev.store.spec",
+  "groupId": "lol.maki.dev.store",
+  "artifactId": "item-spec",
+  "dateLibrary": "java8",
+  "delegatePattern": false,
+  "java8": true,
+  "skipDefaultInterface": true,
+  "reactive": false,
+  "interfaceOnly": true,
+  "serializableModel": true,
+  "performBeanValidation": true
+}

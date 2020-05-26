@@ -1,0 +1,93 @@
+openapi: 3.0.0
+info:
+  title: Item API
+  version: 0.0.1-SNAPSHOT
+  description: Item API
+  license:
+    name: Apache 2.0
+servers:
+  - url: 'http://localhost:9001'
+paths:
+  /items:
+    get:
+      summary: Get all items
+      tags:
+        - Item
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ItemResponse'
+      operationId: get-items
+      description: ''
+  '/items/{ids}':
+    parameters:
+      - schema:
+          type: array
+          items:
+            type: integer
+            format: int64
+        name: ids
+        in: path
+        description: |
+          IDs
+        required: true
+    get:
+      summary: Get items
+      tags:
+        - Item
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/ItemResponse'
+      operationId: get-items-ids
+components:
+  schemas:
+    ItemResponse:
+      title: ItemResponse
+      type: object
+      x-examples: {}
+      description: The reponse of Item
+      properties:
+        uuid:
+          type: string
+          description: ''
+          format: uuid
+        name:
+          type: string
+          description: ''
+        media:
+          type: string
+          enum:
+            - CD
+            - Blu Ray
+        author:
+          type: string
+        unitPrice:
+          type: number
+          format: double
+        release:
+          type: string
+          format: date-time
+        image:
+          type: string
+          format: uri
+      required:
+        - uuid
+        - name
+        - media
+        - author
+        - unitPrice
+        - release
+        - image
+      x-tags:
+        - Item

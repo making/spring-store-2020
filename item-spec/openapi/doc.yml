@@ -58,10 +58,9 @@ components:
       x-examples: {}
       description: The reponse of Item
       properties:
-        uuid:
-          type: string
-          description: ''
-          format: uuid
+        id:
+          type: integer
+          format: int64
         name:
           type: string
           description: ''
@@ -82,7 +81,7 @@ components:
           type: string
           format: uri
       required:
-        - uuid
+        - id
         - name
         - media
         - author

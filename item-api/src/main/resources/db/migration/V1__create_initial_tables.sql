@@ -9,6 +9,6 @@ CREATE TABLE IF NOT EXISTS item
     image      VARCHAR(512)  NOT NULL,
     created_at TIMESTAMP     NOT NULL default now(),
     created_by VARCHAR(64)   NOT NULL default 'system',
-    updated_at TIMESTAMP     NOT NULL default now(),
+    updated_at TIMESTAMP     NOT NULL default now() ON UPDATE now(),
     updated_by VARCHAR(64)   NOT NULL default 'system'
 );

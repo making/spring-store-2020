@@ -29,7 +29,7 @@ jobs:
     - name: generate-spec
       run: |
         set -ex
-        ./mvnw -V clean generate-sources -f item-spec/pom.xml
+        ./mvnw -V clean generate-sources -f item-spec/pom.xml -P spec
         sed 's|</project>||g' item-spec/target/generated-sources/openapi/pom.xml > pom.txt
         cat <<'EOF' > distributionManagement.txt
             <distributionManagement>

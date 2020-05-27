@@ -76,7 +76,7 @@ components:
           format: double
         release:
           type: string
-          format: date-time
+          format: date
         image:
           type: string
           format: uri

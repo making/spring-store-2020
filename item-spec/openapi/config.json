@@ -1,6 +1,6 @@
 {
-  "apiPackage": "lol.maki.dev.store.spec",
-  "modelPackage": "lol.maki.dev.store.spec",
+  "apiPackage": "lol.maki.dev.store.item.spec",
+  "modelPackage": "lol.maki.dev.store.item.spec",
   "groupId": "lol.maki.dev.store",
   "artifactId": "item-spec",
   "dateLibrary": "java8",

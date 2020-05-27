@@ -6,5 +6,9 @@ CREATE TABLE IF NOT EXISTS item
     author     VARCHAR(64)   NOT NULL,
     unit_price DECIMAL(8, 2) NOT NULL,
     `release`  DATE          NOT NULL,
-    image      VARCHAR(512)
+    image      VARCHAR(512)  NOT NULL,
+    created_at TIMESTAMP     NOT NULL default now(),
+    created_by VARCHAR(64)   NOT NULL default 'system',
+    updated_at TIMESTAMP     NOT NULL default now(),
+    updated_by VARCHAR(64)   NOT NULL default 'system'
 );

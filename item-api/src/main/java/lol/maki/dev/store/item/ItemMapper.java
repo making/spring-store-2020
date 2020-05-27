@@ -19,6 +19,10 @@ public class ItemMapper {
             .withUnitPrice(rs.getBigDecimal("unit_price"))
             .withRelease(rs.getDate("release").toLocalDate())
             .withImage(URI.create(rs.getString("image")))
+            .withCreatedAt(rs.getTimestamp("created_at").toInstant())
+            .withCreatedBy(rs.getString("created_by"))
+            .withUpdatedAt(rs.getTimestamp("updated_at").toInstant())
+            .withUpdatedBy(rs.getString("created_by"))
             .build();
 
     public ItemMapper(NamedParameterJdbcTemplate jdbcTemplate) {
@@ -26,10 +30,10 @@ public class ItemMapper {
     }
 
     public List<Item> findAll() {
-        return this.jdbcTemplate.query("SELECT id, name, media, author, unit_price, `release`, image FROM item ORDER BY id", itemRowMapper);
+        return this.jdbcTemplate.query("SELECT id, name, media, author, unit_price, `release`, image, created_at, created_by, updated_at, updated_by   FROM item ORDER BY id", itemRowMapper);
     }
 
     public List<Item> findByIds(List<Long> ids) {
-        return this.jdbcTemplate.query("SELECT id, name, media, author, unit_price, `release`, image FROM item WHERE id IN (:ids) ORDER BY id", Map.of("ids", ids), itemRowMapper);
+        return this.jdbcTemplate.query("SELECT id, name, media, author, unit_price, `release`, image, created_at, created_by, updated_at, updated_by FROM item WHERE id IN (:ids) ORDER BY id", Map.of("ids", ids), itemRowMapper);
     }
 }

@@ -1,4 +1,4 @@
-# OpenAPI Spec Template
+# OpenAPI Spec for Item API
 
 * [ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/making/spring-store-2020/master/item-spec/openapi/doc.yml)
 * [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/making/spring-store-2020/master/item-spec/openapi/doc.yml)

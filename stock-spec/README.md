@@ -1,14 +1,14 @@
-# OpenAPI Spec Template
+# OpenAPI Spec for Stock API
 
-* [ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/making/spring-store-2020/master/item-spec/openapi/doc.yml)
-* [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/making/spring-store-2020/master/item-spec/openapi/doc.yml)
+* [ReDoc](https://redocly.github.io/redoc/?url=https://raw.githubusercontent.com/making/spring-store-2020/master/stock-spec/openapi/doc.yml)
+* [Swagger UI](https://petstore.swagger.io/?url=https://raw.githubusercontent.com/making/spring-store-2020/master/stock-spec/openapi/doc.yml)
 
 ## Include the generated spec
 
 ```xml
 <dependency>
     <groupId>lol.maki.dev.store</groupId>
-    <artifactId>item-spec</artifactId>
+    <artifactId>stock-spec</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <exclusions>
         <exclusion>

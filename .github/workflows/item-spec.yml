@@ -3,11 +3,13 @@ on:
   push:
     paths:
     - 'item-spec/**'
+    - '!item-spec/README.md'
     branches:
     - master
   pull_request:
     paths:
     - 'item-spec/**'
+    - '!item-spec/README.md'
     branches:
     - master
 jobs:

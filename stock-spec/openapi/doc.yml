@@ -67,6 +67,8 @@ paths:
               type: array
               items:
                 $ref: '#/components/schemas/StockRequest'
+            examples: {}
+        description: ''
       tags:
         - Stock
 components:

@@ -9,6 +9,7 @@ import lol.maki.dev.store.stock.spec.StockResponse;
 import lol.maki.dev.store.stock.spec.StocksApi;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -16,6 +17,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 public class StockController implements StocksApi {
     private final StockMapper stockMapper;
     private final StockService stockService;

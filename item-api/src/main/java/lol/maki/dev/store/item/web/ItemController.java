@@ -5,12 +5,14 @@ import lol.maki.dev.store.item.ItemMapper;
 import lol.maki.dev.store.item.spec.ItemResponse;
 import lol.maki.dev.store.item.spec.ItemsApi;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
+@CrossOrigin
 public class ItemController implements ItemsApi {
     private final ItemMapper itemMapper;
 

@@ -58,13 +58,15 @@ paths:
         '200':
           description: OK
         '409':
-          description: Conflict
+          description: Not enough stocks
       description: Keep stocks
       requestBody:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/StockRequest'
+              type: array
+              items:
+                $ref: '#/components/schemas/StockRequest'
 components:
   schemas:
     StockRequest:

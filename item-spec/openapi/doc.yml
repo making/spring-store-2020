@@ -68,7 +68,7 @@ components:
           type: string
           enum:
             - CD
-            - Blu Ray
+            - Blu-ray
         author:
           type: string
         unitPrice:

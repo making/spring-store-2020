@@ -5,20 +5,21 @@ import org.springframework.boot.context.properties.ConstructorBinding;
 
 @ConfigurationProperties(prefix = "store")
 public class StoreProps {
-    private final String itemUrl;
-    private final String stockUrl;
+	private final String itemUrl;
 
-    @ConstructorBinding
-    public StoreProps(String itemUrl, String stockUrl) {
-        this.itemUrl = itemUrl;
-        this.stockUrl = stockUrl;
-    }
+	private final String stockUrl;
 
-    public String getItemUrl() {
-        return itemUrl;
-    }
+	@ConstructorBinding
+	public StoreProps(String itemUrl, String stockUrl) {
+		this.itemUrl = itemUrl;
+		this.stockUrl = stockUrl;
+	}
 
-    public String getStockUrl() {
-        return stockUrl;
-    }
+	public String getItemUrl() {
+		return itemUrl;
+	}
+
+	public String getStockUrl() {
+		return stockUrl;
+	}
 }

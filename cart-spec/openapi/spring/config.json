@@ -1,0 +1,14 @@
+{
+  "apiPackage": "lol.maki.dev.store.cart.spec",
+  "modelPackage": "lol.maki.dev.store.cart.spec",
+  "groupId": "lol.maki.dev.store",
+  "artifactId": "cart-spec",
+  "dateLibrary": "java8",
+  "delegatePattern": false,
+  "java8": true,
+  "skipDefaultInterface": true,
+  "reactive": false,
+  "interfaceOnly": true,
+  "serializableModel": true,
+  "performBeanValidation": true
+}

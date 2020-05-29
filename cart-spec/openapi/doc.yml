@@ -100,7 +100,7 @@ paths:
         in: path
         required: true
     delete:
-      summary: ''
+      summary: Deleta a cart item
       operationId: remove-item
       responses:
         '200':

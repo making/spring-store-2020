@@ -1,4 +1,4 @@
-package lol.maki.dev.store.catalog;
+package lol.maki.dev.store.catalog.web;
 
 import java.util.List;
 

@@ -1,0 +1,87 @@
+openapi: 3.0.0
+info:
+  title: Catalog API
+  version: 0.0.1-SNAPSHOT
+  description: Catalog API
+  license:
+    name: Apache 2.0
+servers:
+  - url: 'http://localhost:9003'
+paths:
+  /catalogs:
+    get:
+      summary: Get all catalogs
+      tags:
+        - Catalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CatalogResponse'
+      operationId: get-catalogs
+      description: ''
+  '/catalogs/{catalogId}':
+    parameters:
+      - schema:
+          type: integer
+          format: int64
+        name: catalogId
+        in: path
+        required: true
+        description: ''
+    get:
+      summary: Get catalog by catalog id
+      tags:
+        - Catalog
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CatalogResponse'
+      operationId: get-catalog-by-catalog-id
+components:
+  schemas:
+    CatalogResponse:
+      title: CatalogResponse
+      type: object
+      x-examples: {}
+      description: The response of Catalog
+      x-tags:
+        - Catalog
+      properties:
+        id:
+          type: integer
+          format: int64
+        name:
+          type: string
+        media:
+          type: string
+        author:
+          type: string
+        unitPrice:
+          type: number
+          format: double
+        release:
+          type: string
+          format: date
+        image:
+          type: string
+          format: uri
+        stock:
+          type: integer
+          format: int32
+      required:
+        - id
+        - name
+        - media
+        - author
+        - unitPrice
+        - release
+        - image
+        - stock

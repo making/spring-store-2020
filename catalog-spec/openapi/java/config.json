@@ -1,0 +1,14 @@
+{
+  "apiPackage": "lol.maki.dev.store.catalog.client",
+  "invokerPackage": "lol.maki.dev.store.catalog.client",
+  "modelPackage": "lol.maki.dev.store.catalog.client",
+  "groupId": "lol.maki.dev.store",
+  "artifactId": "catalog-client",
+  "library": "webclient",
+  "dateLibrary": "java8",
+  "java8": true,
+  "reactive": false,
+  "serializableModel": true,
+  "useGzipFeature": true,
+  "useRxJava2": true
+}

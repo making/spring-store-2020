@@ -24,17 +24,16 @@ paths:
                   $ref: '#/components/schemas/CatalogResponse'
       operationId: get-catalogs
       description: ''
-  '/catalogs/{catalogId}':
+  '/catalogs/{itemId}':
     parameters:
       - schema:
           type: integer
           format: int64
-        name: catalogId
+        name: itemId
         in: path
         required: true
-        description: ''
     get:
-      summary: Get catalog by catalog id
+      summary: Get catalog by item id
       tags:
         - Catalog
       responses:
@@ -44,7 +43,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CatalogResponse'
-      operationId: get-catalog-by-catalog-id
+      operationId: get-catalog-by-item-id
 components:
   schemas:
     CatalogResponse:

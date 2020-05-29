@@ -6,7 +6,7 @@ info:
   license:
     name: Apache 2.0
 servers:
-  - url: 'http://localhost:9003'
+  - url: 'http://localhost:9000'
 paths:
   /catalogs:
     get:

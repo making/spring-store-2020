@@ -7,7 +7,7 @@
   "delegatePattern": false,
   "java8": true,
   "skipDefaultInterface": true,
-  "reactive": false,
+  "reactive": true,
   "interfaceOnly": true,
   "serializableModel": true,
   "performBeanValidation": true

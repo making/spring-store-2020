@@ -11,8 +11,8 @@ paths:
   '/carts/{cartId}':
     parameters:
       - schema:
-          type: integer
-          format: int64
+          type: string
+          format: uuid
         name: cartId
         in: path
         description: ''
@@ -50,8 +50,8 @@ paths:
   '/carts/{cartId}/detail':
     parameters:
       - schema:
-          type: integer
-          format: int32
+          type: string
+          format: uuid
         name: cartId
         in: path
         required: true
@@ -88,14 +88,14 @@ paths:
   '/carts/{cartId}/items/{itemId}':
     parameters:
       - schema:
-          type: integer
-          format: int32
+          type: string
+          format: uuid
         name: cartId
         in: path
         required: true
       - schema:
           type: integer
-          format: int32
+          format: int64
         name: itemId
         in: path
         required: true
@@ -117,10 +117,12 @@ components:
       title: CartResponse
       type: object
       x-examples: {}
+      x-tags:
+        - Cart
       properties:
         cartId:
-          type: integer
-          format: int64
+          type: string
+          format: uuid
         items:
           type: array
           items:
@@ -128,8 +130,6 @@ components:
       required:
         - cartId
         - items
-      x-tags:
-        - Cart
     CartResponseItem:
       title: CartResponseItem
       type: object
@@ -149,8 +149,8 @@ components:
         - Cart
       properties:
         cartId:
-          type: integer
-          format: int64
+          type: string
+          format: uuid
         total:
           type: number
           format: double

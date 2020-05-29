@@ -70,7 +70,7 @@ paths:
   /carts:
     post:
       summary: Create a cart
-      operationId: carete-cart
+      operationId: create-cart
       responses:
         '201':
           description: Created

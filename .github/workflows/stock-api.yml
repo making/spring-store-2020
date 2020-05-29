@@ -27,4 +27,4 @@ jobs:
     - name: mvn package
       run: |
         set -ex
-        ./mvnw -V package -f stock-api/pom.xml
+        ./mvnw -V package -f stock-api/pom.xml -U

@@ -43,6 +43,8 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/CatalogResponse'
+        '404':
+          description: Not Found
       operationId: get-catalog-by-item-id
 components:
   schemas:

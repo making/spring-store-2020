@@ -24,6 +24,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.util.IdGenerator;
 
+import static com.atlassian.oai.validator.mockmvc.OpenApiValidationMatchers.openApi;
 import static org.mockito.BDDMockito.given;
 import static org.springframework.http.HttpHeaders.LOCATION;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.delete;
@@ -87,11 +88,13 @@ class CartControllerTest {
 		given(this.itemApi.getItemsIds(List.of(1L))).willReturn(Flux.just(this.item1));
 		this.mockMvc.perform(post("/carts/{cartId}", this.cartId1)
 				.contentType(MediaType.APPLICATION_JSON)
+				.characterEncoding("UTF-8")
 				.content("{\n"
 						+ "  \"itemId\": 1,\n"
 						+ "  \"quantity\": 1\n"
 						+ "}"))
 				.andExpect(status().isOk())
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(30.0))
 				.andExpect(jsonPath("$.items").isArray())
@@ -112,11 +115,13 @@ class CartControllerTest {
 		given(this.itemApi.getItemsIds(List.of(1L))).willReturn(Flux.just(this.item1));
 		this.mockMvc.perform(post("/carts/{cartId}", this.cartId1)
 				.contentType(MediaType.APPLICATION_JSON)
+				.characterEncoding("UTF-8")
 				.content("{\n"
 						+ "  \"itemId\": 1,\n"
 						+ "  \"quantity\": 1\n"
 						+ "}"))
 				.andExpect(status().isOk())
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(60.0))
 				.andExpect(jsonPath("$.items").isArray())
@@ -137,11 +142,13 @@ class CartControllerTest {
 		given(this.itemApi.getItemsIds(List.of(1L))).willReturn(Flux.just(this.item1));
 		this.mockMvc.perform(post("/carts/{cartId}", this.cartId1)
 				.contentType(MediaType.APPLICATION_JSON)
+				.characterEncoding("UTF-8")
 				.content("{\n"
 						+ "  \"itemId\": 1,\n"
 						+ "  \"quantity\": -1\n"
 						+ "}"))
 				.andExpect(status().isOk())
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(60.0))
 				.andExpect(jsonPath("$.items").isArray())
@@ -162,11 +169,13 @@ class CartControllerTest {
 		given(this.itemApi.getItemsIds(List.of(1L))).willReturn(Flux.just(this.item1));
 		this.mockMvc.perform(post("/carts/{cartId}", this.cartId1)
 				.contentType(MediaType.APPLICATION_JSON)
+				.characterEncoding("UTF-8")
 				.content("{\n"
 						+ "  \"itemId\": 1,\n"
 						+ "  \"quantity\": -3\n"
 						+ "}"))
 				.andExpect(status().isOk())
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(0.0))
 				.andExpect(jsonPath("$.items").isArray())
@@ -180,11 +189,13 @@ class CartControllerTest {
 		given(this.itemApi.getItemsIds(List.of(1L, 2L))).willReturn(Flux.just(this.item1, this.item2));
 		this.mockMvc.perform(post("/carts/{cartId}", this.cartId1)
 				.contentType(MediaType.APPLICATION_JSON)
+				.characterEncoding("UTF-8")
 				.content("{\n"
 						+ "  \"itemId\": 2,\n"
 						+ "  \"quantity\": 1\n"
 						+ "}"))
 				.andExpect(status().isOk())
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(63.0))
 				.andExpect(jsonPath("$.items").isArray())
@@ -211,12 +222,14 @@ class CartControllerTest {
 		given(this.stockApi.getStocksByItemIds(List.of(1L))).willReturn(Flux.just(this.stock1));
 		this.mockMvc.perform(post("/carts/{cartId}", this.cartId1)
 				.contentType(MediaType.APPLICATION_JSON)
+				.characterEncoding("UTF-8")
 				.content("{\n"
 						+ "  \"itemId\": 1,\n"
 						+ "  \"quantity\": 11\n"
 						+ "}"))
 				.andExpect(status().isConflict())
-				.andExpect(status().reason("Not enough stocks (itemId=1, quantity=11)"));
+				.andExpect(status().reason("Not enough stocks (itemId=1, quantity=11)"))
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"));
 	}
 
 	@Test
@@ -225,6 +238,7 @@ class CartControllerTest {
 		this.mockMvc.perform(post("/carts"))
 				.andExpect(status().isCreated())
 				.andExpect(header().string(LOCATION, String.format("http://localhost/carts/%s", this.cartId1)))
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(0.0))
 				.andExpect(jsonPath("$.items").isArray())
@@ -239,6 +253,7 @@ class CartControllerTest {
 		given(this.itemApi.getItemsIds(List.of(1L, 2L))).willReturn(Flux.just(this.item1, this.item2));
 		this.mockMvc.perform(get("/carts/{cartId}", this.cartId1))
 				.andExpect(status().isOk())
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(96.0))
 				.andExpect(jsonPath("$.items").isArray())
@@ -264,7 +279,8 @@ class CartControllerTest {
 		given(this.cartMapper.findById(this.cartId1)).willReturn(Optional.empty());
 		this.mockMvc.perform(get("/carts/{cartId}", this.cartId1))
 				.andExpect(status().isNotFound())
-				.andExpect(status().reason(String.format("The requested cart is not found. (cartId = %s)", this.cartId1)));
+				.andExpect(status().reason(String.format("The requested cart is not found. (cartId = %s)", this.cartId1)))
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"));
 	}
 
 	@Test
@@ -275,6 +291,7 @@ class CartControllerTest {
 		given(this.itemApi.getItemsIds(List.of(1L))).willReturn(Flux.just(this.item1));
 		this.mockMvc.perform(delete("/carts/{cartId}/items/{itemId}", this.cartId1, 2L))
 				.andExpect(status().isOk())
+				.andExpect(openApi().isValid("META-INF/resources/openapi/doc.yml"))
 				.andExpect(jsonPath("$.cartId").value(this.cartId1.toString()))
 				.andExpect(jsonPath("$.totalPrice").value(30.0))
 				.andExpect(jsonPath("$.items").isArray())

@@ -110,7 +110,7 @@ components:
         cartId:
           type: string
           format: uuid
-        total:
+        totalPrice:
           type: number
           format: double
         items:

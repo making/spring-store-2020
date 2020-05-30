@@ -4,6 +4,7 @@ import java.net.URI;
 import java.time.LocalDate;
 import java.util.List;
 
+import lol.maki.dev.store.catalog.web.CatalogController;
 import lol.maki.dev.store.item.client.ItemApi;
 import lol.maki.dev.store.item.client.ItemResponse;
 import lol.maki.dev.store.stock.client.StockApi;

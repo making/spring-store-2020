@@ -34,7 +34,10 @@ components:
         cartId:
           type: string
           format: uuid
-        addressName:
+        addressFirstName:
+          type: string
+          minLength: 1
+        addressLastName:
           type: string
           minLength: 1
         zipCode:
@@ -60,7 +63,8 @@ components:
           minLength: 1
       required:
         - cartId
-        - addressName
+        - addressFirstName
+        - addressLastName
         - zipCode
         - shippingAddress
         - telephone

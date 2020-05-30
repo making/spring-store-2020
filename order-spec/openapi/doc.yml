@@ -1,0 +1,65 @@
+openapi: 3.0.0
+info:
+  title: Order API
+  version: 0.0.1-SNAPSHOT
+  description: Order API
+  license:
+    name: Apache 2.0
+servers:
+  - url: 'http://localhost:9004'
+paths:
+  /orders:
+    post:
+      summary: ''
+      operationId: post-orders
+      responses:
+        '201':
+          description: Created
+      tags:
+        - Order
+components:
+  schemas:
+    OrderRequest:
+      title: OrderRequest
+      type: object
+      x-examples: {}
+      x-tags:
+        - Cart
+      properties:
+        cartId:
+          type: string
+          format: uuid
+        addressName:
+          type: string
+          minLength: 1
+        zipCode:
+          type: string
+          minLength: 1
+        shippingAddress:
+          type: string
+          minLength: 1
+        telephone:
+          type: string
+          minLength: 1
+        email:
+          type: string
+          format: email
+        cardNumber:
+          type: string
+          minLength: 1
+        cardExpiryDate:
+          type: string
+          format: date
+        cardName:
+          type: string
+          minLength: 1
+      required:
+        - cartId
+        - addressName
+        - zipCode
+        - shippingAddress
+        - telephone
+        - email
+        - cardNumber
+        - cardExpiryDate
+        - cardName

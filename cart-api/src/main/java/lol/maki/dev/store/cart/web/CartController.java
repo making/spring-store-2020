@@ -24,6 +24,7 @@ import reactor.core.publisher.Mono;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.IdGenerator;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
@@ -32,6 +33,7 @@ import static org.springframework.http.HttpStatus.CONFLICT;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
 
 @RestController
+@CrossOrigin
 public class CartController implements CartsApi {
 	private final CartMapper cartMapper;
 

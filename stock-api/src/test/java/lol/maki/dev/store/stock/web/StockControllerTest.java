@@ -103,6 +103,7 @@ class StockControllerTest {
 				.contentType(MediaType.APPLICATION_JSON)
 				.content("[{\"itemId\":1,\"quantity\":1},{\"itemId\":2,\"quantity\":2}]\n"))
 				.andExpect(status().isConflict())
+				.andExpect(status().reason("Not enough stocks (itemId=2, quantity=2)"))
 		;
 	}
 }

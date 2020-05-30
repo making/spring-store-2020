@@ -47,26 +47,6 @@ paths:
               $ref: '#/components/schemas/UpdateCartRequest'
       tags:
         - Cart
-  '/carts/{cartId}/detail':
-    parameters:
-      - schema:
-          type: string
-          format: uuid
-        name: cartId
-        in: path
-        required: true
-    get:
-      summary: Get a cart detail by id
-      tags:
-        - Cart
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/CartDetailResponse'
-      operationId: get-cart-detail-by-cartId
   /carts:
     post:
       summary: Create a cart
@@ -116,35 +96,6 @@ components:
     CartResponse:
       title: CartResponse
       type: object
-      x-examples: {}
-      x-tags:
-        - Cart
-      properties:
-        cartId:
-          type: string
-          format: uuid
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/CartResponseItem'
-      required:
-        - cartId
-        - items
-    CartResponseItem:
-      title: CartResponseItem
-      type: object
-      x-tags:
-        - Cart
-      properties:
-        itemId:
-          type: integer
-          format: int64
-        quantity:
-          type: integer
-          format: int32
-    CartDetailResponse:
-      title: CartDetailResponse
-      type: object
       x-tags:
         - Cart
       properties:
@@ -157,9 +108,9 @@ components:
         items:
           type: array
           items:
-            $ref: '#/components/schemas/CartDetailResponseItem'
-    CartDetailResponseItem:
-      title: CartDetailResponseItem
+            $ref: '#/components/schemas/CartResponseItem'
+    CartResponseItem:
+      title: CartResponseItem
       type: object
       properties:
         itemId:

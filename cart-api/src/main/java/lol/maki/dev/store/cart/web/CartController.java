@@ -105,13 +105,13 @@ public class CartController implements CartsApi {
 					(cartDetailItems, total) -> new CartResponse()
 							.cartId(cart.cartId())
 							.items(cartDetailItems)
-							.total(total.doubleValue()));
+							.totalPrice(total.doubleValue()));
 		}
 		else {
 			return new CartResponse()
 					.cartId(cart.cartId())
 					.items(List.of())
-					.total(0.0);
+					.totalPrice(0.0);
 		}
 	}
 }

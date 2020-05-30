@@ -17,6 +17,11 @@ paths:
           description: Created
       tags:
         - Order
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OrderRequest'
 components:
   schemas:
     OrderRequest:
